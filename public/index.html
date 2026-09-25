@@ -45,32 +45,43 @@
             width: 100%;
             padding: 15px 30px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             background: var(--nav-bg);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
+            gap: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
         .nav-center {
             display: flex;
+            justify-content: center;
             gap: 15px;
         }
 
-        .nav-controls {
+        .nav-controls-right, .nav-controls-left {
+            position: absolute;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+        }
+
+        .nav-controls-left {
+            left: 20px;
+        }
+
+        .nav-controls-right {
+            right: 20px;
         }
 
         .nav-btn {
             background: transparent;
             border: 2px solid var(--accent);
             color: var(--text-main);
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
@@ -291,20 +302,25 @@
 <body>
 
     <nav>
-        <div class="nav-controls">
-            <!-- ضع رابط سيرفر أو حساب الديسكورد هنا بدلاً من # -->
-            <a href="ضع_رابط_الديسكورد_هنا" class="nav-icon-btn discord-btn" target="_blank" title="ديسكورد">
+        <!-- أيقونة الديسكورد أعلى اليمين -->
+        <div class="nav-controls-right">
+            <a href="#" class="nav-icon-btn discord-btn" target="_blank" title="ديسكورد">
                 <i class="fab fa-discord"></i>
             </a>
-            <button class="nav-icon-btn" onclick="toggleTheme()" title="تغيير الثيم">
-                <i class="fas fa-sun" id="theme-icon"></i>
-            </button>
         </div>
 
+        <!-- أزرار التنقل بالمنتصف كما كانت أولاً -->
         <div class="nav-center">
             <button class="nav-btn active" onclick="showPage('home')">الرئيسية</button>
             <button class="nav-btn" onclick="showPage('accounts')">حساباتي</button>
             <button class="nav-btn" onclick="showPage('fivem')">فايف ام</button>
+        </div>
+
+        <!-- زر تحويل الثيم أعلى اليسار -->
+        <div class="nav-controls-left">
+            <button class="nav-icon-btn" onclick="toggleTheme()" title="تغيير الثيم">
+                <i class="fas fa-sun" id="theme-icon"></i>
+            </button>
         </div>
     </nav>
 
