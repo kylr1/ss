@@ -151,6 +151,76 @@
             color: var(--text-muted);
             font-size: 0.9rem;
         }
+
+        /* تنسيقات شخصيات فايف ام */
+        .character-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .character-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px rgba(0, 180, 216, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .char-img {
+            width: 160px;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.2);
+        }
+
+        .char-name {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .char-tag {
+            display: inline-block;
+            background: rgba(0, 180, 216, 0.15);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+        }
+
+        .char-hint {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .char-bio {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.4s ease;
+            color: var(--text-muted);
+            line-height: 1.7;
+            text-align: right;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .character-card.open .char-bio {
+            max-height: 300px;
+            margin-top: 15px;
+            padding-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -158,6 +228,7 @@
     <nav>
         <button class="nav-btn active" onclick="showPage('home')">الرئيسية</button>
         <button class="nav-btn" onclick="showPage('accounts')">حساباتي</button>
+        <button class="nav-btn" onclick="showPage('fivem')">فايف ام</button>
     </nav>
 
     <div class="container">
@@ -212,6 +283,21 @@
                 </a>
             </div>
         </div>
+
+        <!-- صفحة فايف ام -->
+        <div id="fivem" class="page">
+            <div class="character-card" onclick="toggleBio(this)">
+                <!-- يمكنك تغيير char.png برابط مباشر للصور إن أردت -->
+                <img src="char.png" alt="شخصية DELTA" class="char-img">
+                <h2 class="char-name">DELTA</h2>
+                <span class="char-tag">قوات خاصة / تكتيكي</span>
+                <div class="char-hint"><i class="fas fa-chevron-down"></i> اضغط لإظهار / إخفاء النبذة</div>
+                
+                <div class="char-bio">
+                    شخصية القيادة التكتيكية للعمليات الخاصة (DELTA). تتميز بالحزم والخبرة في إدارة المواقف الصعبة داخل السيرفر وتنفيذ المهام التكتيكية ببراعة.
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -221,6 +307,10 @@
             
             document.getElementById(pageId).classList.add('active');
             event.target.classList.add('active');
+        }
+
+        function toggleBio(card) {
+            card.classList.toggle('open');
         }
     </script>
 </body>
