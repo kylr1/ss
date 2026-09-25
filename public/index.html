@@ -12,16 +12,6 @@
             --accent: #00b4d8;
             --text-main: #f8f9fa;
             --text-muted: #8d99ae;
-            --nav-bg: rgba(28, 37, 65, 0.7);
-        }
-
-        [data-theme="light"] {
-            --bg-primary: #f4f6f9;
-            --bg-card: #ffffff;
-            --accent: #0077b6;
-            --text-main: #1d2d44;
-            --text-muted: #6c757d;
-            --nav-bg: rgba(255, 255, 255, 0.85);
         }
 
         * {
@@ -29,7 +19,6 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         body {
@@ -43,38 +32,15 @@
 
         nav {
             width: 100%;
-            padding: 15px 30px;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            background: var(--nav-bg);
+            gap: 15px;
+            background: rgba(28, 37, 65, 0.5);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            gap: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-
-        .nav-center {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .nav-controls-right, .nav-controls-left {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-controls-left {
-            left: 20px;
-        }
-
-        .nav-controls-right {
-            right: 20px;
         }
 
         .nav-btn {
@@ -90,30 +56,7 @@
 
         .nav-btn.active, .nav-btn:hover {
             background: var(--accent);
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
-        }
-
-        .nav-icon-btn {
-            background: var(--bg-card);
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-icon-btn:hover {
-            background: var(--accent);
-            color: #ffffff;
-            transform: translateY(-2px);
+            color: var(--bg-primary);
             box-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
         }
 
@@ -142,7 +85,7 @@
             border-radius: 20px;
             padding: 40px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -159,6 +102,7 @@
         .profile-name {
             font-size: 2rem;
             margin-bottom: 10px;
+            color: #ffffff;
         }
 
         .bio-text {
@@ -238,6 +182,7 @@
 
         .char-name {
             font-size: 1.5rem;
+            color: #ffffff;
             margin-bottom: 5px;
         }
 
@@ -276,52 +221,14 @@
             margin-top: 15px;
             padding-top: 15px;
         }
-
-        /* تنبيه تغيير الثيم */
-        .toast-notification {
-            position: fixed;
-            bottom: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-card);
-            color: var(--text-main);
-            border: 2px solid var(--accent);
-            padding: 12px 25px;
-            border-radius: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            font-weight: bold;
-            transition: bottom 0.4s ease-in-out;
-            z-index: 1000;
-        }
-
-        .toast-notification.show {
-            bottom: 30px;
-        }
     </style>
 </head>
 <body>
 
     <nav>
-        <!-- أيقونة الديسكورد أعلى اليمين -->
-        <div class="nav-controls-right">
-            <a href="#" class="nav-icon-btn discord-btn" target="_blank" title="ديسكورد">
-                <i class="fab fa-discord"></i>
-            </a>
-        </div>
-
-        <!-- أزرار التنقل بالمنتصف كما كانت أولاً -->
-        <div class="nav-center">
-            <button class="nav-btn active" onclick="showPage('home')">الرئيسية</button>
-            <button class="nav-btn" onclick="showPage('accounts')">حساباتي</button>
-            <button class="nav-btn" onclick="showPage('fivem')">فايف ام</button>
-        </div>
-
-        <!-- زر تحويل الثيم أعلى اليسار -->
-        <div class="nav-controls-left">
-            <button class="nav-icon-btn" onclick="toggleTheme()" title="تغيير الثيم">
-                <i class="fas fa-sun" id="theme-icon"></i>
-            </button>
-        </div>
+        <button class="nav-btn active" onclick="showPage('home')">الرئيسية</button>
+        <button class="nav-btn" onclick="showPage('accounts')">حساباتي</button>
+        <button class="nav-btn" onclick="showPage('fivem')">فايف ام</button>
     </nav>
 
     <div class="container">
@@ -357,6 +264,15 @@
                     </div>
                 </a>
 
+                <!-- ديسكورد -->
+                <a href="#" class="account-card" target="_blank">
+                    <i class="fab fa-discord account-icon"></i>
+                    <div class="account-info">
+                        <h3>ديسكورد</h3>
+                        <p>انضم لمجتمعي في Discord</p>
+                    </div>
+                </a>
+
                 <!-- انستغرام -->
                 <a href="https://www.instagram.com/kylr_10?stkn=ZXVidXl1czZlZHhx&utm_source=qr" class="account-card" target="_blank">
                     <i class="fab fa-instagram account-icon"></i>
@@ -372,7 +288,7 @@
         <div id="fivem" class="page">
             <div class="character-card" onclick="toggleBio(this)">
                 <img src="https://i.postimg.cc/sg4pHzRr/41B61070-9591-4748-BD29-EAB1224D2E9F.png" alt="شخصية DELTA" class="char-img">
-                <h2 class="char-name">صقر محمد</h2>
+                <h2 class="char-name">DELTA</h2>
                 <span class="char-tag">قوات خاصة / تكتيكي</span>
                 <div class="char-hint"><i class="fas fa-chevron-down"></i> اضغط لإظهار / إخفاء النبذة</div>
                 
@@ -382,9 +298,6 @@
             </div>
         </div>
     </div>
-
-    <!-- رسالة التنبيه عند تغيير الثيم -->
-    <div id="toast" class="toast-notification">تم تغيير ثيم الموقع</div>
 
     <script>
         function showPage(pageId) {
@@ -397,30 +310,6 @@
 
         function toggleBio(card) {
             card.classList.toggle('open');
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            const isDark = body.getAttribute('data-theme') !== 'light';
-
-            if (isDark) {
-                body.setAttribute('data-theme', 'light');
-                themeIcon.className = 'fas fa-moon';
-            } else {
-                body.removeAttribute('data-theme');
-                themeIcon.className = 'fas fa-sun';
-            }
-
-            showToast();
-        }
-
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2500);
         }
     </script>
 </body>
