@@ -1,0 +1,6 @@
+{
+  "name": "KYLR | SAUD - الموقع التعريفي",
+  "description": "الموقع التعريفي الرسمي لـ KYLR | SAUD - حسابات تيك توك، إنستغرام، سناب شات، وسيرفر الديسكورد باللون الأزرق الغامق الفخم والنمط الداكن.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
